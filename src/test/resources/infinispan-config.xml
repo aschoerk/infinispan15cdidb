@@ -37,22 +37,5 @@
             </persistence>
             <memory max-count="1000"/>
         </replicated-cache>
-        <replicated-cache name="cache_org_2" mode="SYNC">
-            <encoding media-type="application/x-protostream"/>
-            <expiration lifespan="60000" interval="1000" />
-            <persistence>
-                <string-keyed-jdbc-store xmlns="urn:infinispan:config:store:jdbc:15.0" dialect="H2">
-                    <cdi-data-source annotation="com.oneandone.access.ciam.keycloak.infinispan.DSQualifier$DSQualifierLiteral" name="testH2"/>
-                    <string-keyed-table create-on-start="true" prefix="ispn">
-                        <id-column name="id" type="VARCHAR(255)"/>
-                        <data-column name="data" type="bytea"/>
-                        <timestamp-column name="ts" type="BIGINT"/>
-                        <segment-column name="seg" type="INT"/>
-                    </string-keyed-table>
-                </string-keyed-jdbc-store>
-            </persistence>
-            <memory max-count="1000"/>
-        </replicated-cache>
-
     </cache-container>
 </infinispan>
